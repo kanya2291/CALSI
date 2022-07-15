@@ -1,0 +1,212 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <meta name="viewport" content=" width=device-width,initil-scale=1.0">
+    <style>
+        button{
+            width: 51px;
+            height: 70px;
+            font-size: 20;
+        }
+        .calc input{
+                width: 225px;
+                height:50px;
+                box-sizing: border-box;
+                font-size: 20;
+        }
+        .calc{
+            width: 25%;
+            margin-top: 30px;
+            border: 3px solid blue;
+            box-sizing : border-box;
+            margin-left:80px;  
+            background-color:blue; 
+            padding:20 40 20 40; 
+            border: 3px solid red;
+            text-align :center;
+        }
+        .calc button{
+            background-color: aqua;
+            margin-left: 6px;
+           
+
+        }
+        body{
+            background-color: pink;
+        }
+        .heading{
+            margin-left: 460px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading" >Calculator</h1>
+    <center>
+        <div class="calc">
+        <input type="text" id="input" >
+        <table >
+            <tr>
+                <td colspan="4">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button value="1" id="one" onclick="first();">1</button>
+                    <button value="2" id="two" onclick="second();">2</button>
+                    <button value="3" id="three" onclick="three();">3</button>
+                    <button value="+" id="plus" onclick="plus();">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button value="4" id="four" onclick="four();">4</button>
+                    <button value="5" id="five" onclick="five();">5</button>
+                    <button value="6" id="six" onclick="six();">6</button>
+                    <button value="-" id="minus" onclick="minus();">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button value="7" id="seven" onclick="seven();">7</button>
+                    <button value="8" id="eight" onclick="eight();">8</button>
+                    <button value="9" id="nine" onclick="nine();">9</button>
+                    <button value="*" id="star" onclick="star();">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button value="." id="dot" onclick="dot">.</button>
+                    <button value="0" id="zero" onclick="zero();">0</button>
+                    <button value="=" id="equal" onclick="equal();">=</button>
+                    <button value="/" id="slash" onclick="slash();">/</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button style="width: 70px; height:60px" onclick="Clear();">Clear</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </center>
+    <script>
+
+         exp="";
+        function input(){
+              document.getElementById("input").value=exp;
+
+        }
+        function first(){
+            var one=document.getElementById("one").value;
+            exp=exp+one;
+            input();
+        }
+        function second(){
+            var second=document.getElementById("two").value;
+            exp=exp+second;
+            input();
+        }
+        function three(){
+            var third=document.getElementById("three").value;
+            exp=exp+third;
+            input();
+        }
+        function plus(){
+            var p=document.getElementById("plus").value;
+            exp=exp+p;
+            input();
+        }
+        function four(){
+            var four=document.getElementById("four").value;
+            exp=exp+four;
+            input();
+        }
+        function five(){
+            var five=document.getElementById("five").value;
+            exp=exp+five;
+            input();
+        }
+        function six(){
+            var six=document.getElementById("six").value;
+            exp=exp+six;
+            input();
+        }
+        function seven(){
+            var seven=document.getElementById("seven").value;
+            exp=exp+seven;
+            input();
+        }
+        function minus(){
+            var min=document.getElementById("minus").value;
+            exp=exp+min;
+            input();
+        }
+        function eight(){
+            var eight=document.getElementById("eight").value;
+            exp=exp+eight;
+            input();
+        }
+        function nine(){
+            var nine=document.getElementById("nine").value;
+            exp=exp+nine;
+            input();
+        }
+        function zero(){
+            var zero=document.getElementById("zero").value;
+            exp=exp+zero;
+            input();
+        }
+        function star(){
+            var s=document.getElementById("star").value;
+            exp=exp+s;
+            input();
+        }
+        function dot(){
+            var dot=document.getElementById("dot").value;
+            exp=exp+dot;
+            input();
+        }
+        // function equal(){
+        //     var num=eval(exp);
+        // document.getElementById("input").value=num;
+        //     exp=num;
+        // }
+        function slash(){
+            var sl=document.getElementById("slash").value;
+            exp=exp+sl;
+            input();
+        }
+        function Clear(){
+            exp="";
+            input();
+        }
+        function equal(){
+            //alert(eval(exp))
+            try {
+                
+                var num = eval(document.getElementById("input").value); 
+                if(num=="Infinity" || num=="-Infinity"){
+                    throw "Zero Division Error";
+                }
+               
+                document.getElementById("input").value=num;
+                document.getElementById("input").style.background="green";
+                exp=num;               
+            }catch(err){
+
+                if(err=="Zero Division Error"){
+                    alert("Invalid\n"+err);
+
+                }
+                else{
+                    alert("Invalid Error");
+                }
+                document.getElementById("input").style.background="red";
+           }
+    }
+        
+    </script>
+</body>
